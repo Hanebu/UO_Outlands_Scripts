@@ -1,45 +1,50 @@
-// Original code: unknown
-// Optimized by Hanebu
+// *****
+// * Original code by unknown
+// * Optimized by Hanebu
+// *****
+//
+// HOW TO USE IT:
+//
+// 1. Add or remove as many Tomes as you want
+//    To get the ID of you tome use:
+//    ">info" ingame to get a target cursor
+//    then target the desired tome
+//    and paste the value below.
 
-removelist tomes
-createlist tomes
+
+removelist Tomes
+createlist Tomes
 clearsysmsg
 
-// Add or remove as many tomes as you want
-// To get the ID of you tome use:
-// >info ingame to get a target cursor
-// then target the desired tome
-// and paste the value below.
-
 // Skinning
-pushlist tomes '0x400D5230'
+pushlist Tomes '0x400D5230'
 // Ore
-pushlist tomes '0x47F6774A'
+pushlist Tomes '0x47F6774A'
 // Lumber
-pushlist tomes '0x47F67484'
+pushlist Tomes '0x47F67484'
 // TMap
-pushlist tomes '0x40C31DC8'
+pushlist Tomes '0x40C31DC8'
 // Fishing
-pushlist tomes '0x40048ED1'
+pushlist Tomes '0x40048ED1'
 
-removelist buttons
-createlist buttons
+removelist Buttons
+createlist Buttons
 
-//Set buttons
-pushlist buttons '10'
-pushlist buttons '11'
-pushlist buttons '12'
-pushlist buttons '13'
-pushlist buttons '14'
-pushlist buttons '15'
-pushlist buttons '16'
-pushlist buttons '17'
-pushlist buttons '18'
+//Set Buttons
+pushlist Buttons '10'
+pushlist Buttons '11'
+pushlist Buttons '12'
+pushlist Buttons '13'
+pushlist Buttons '14'
+pushlist Buttons '15'
+pushlist Buttons '16'
+pushlist Buttons '17'
+pushlist Buttons '18'
 
-foreach tome in tomes
+foreach tome in Tomes
     dclick tome
     waitforgump 'any'
-    foreach button in buttons
+    foreach button in Buttons
         if insysmsg 'The world will save'
             overhead 'Pausing for Worldsave' 55
             pause 25000
