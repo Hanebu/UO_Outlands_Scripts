@@ -25,44 +25,41 @@
 // 
 
 setvar 'TMapChest'
-dclick 'TMapChest'
-waitforgump 736038070
 
+// Hide
 if not hidden 
-    wait 500
     hotkey 'Hiding'
     wait 500
 endif
 
 // Remove Trap
 while not insysmsg 'devoid of traps' and not insysmsg 'cleared it of traps'
-    overhead 'Attempting to remove the Trap...' 54
-    gumpresponse 7
+    dclicktype 29001 backpack
+    waitfortarget
+    target 'TMapChest'
     wait 4000
 endwhile
-overhead 'Cleared the Trap!' 62
 
 // Lockpick
-while not insysmsg 'successfully pick the lock'
-    overhead 'Attempting to pick the Lock...' 54
-    gumpresponse 4
+while not insysmsg 'successfully pick the lock' and not insysmsg 'That appears to be unlocked'
+    dclicktype 5373 backpack
+    waitfortarget
+    target 'TMapChest'
     wait 4000
 endwhile
-overhead 'Picked the Lock!' 62
 
 // Loot
-overhead 'Starting to loot the Chest...' 54
 restock 1
 waitfortarget 
 target 'TMapChest'
 
 // Wait for looting
-while not insysmsg "Finished"
+while not insysmsg 'Finished'
     pause 300
 endwhile
 
+// Hide
 if not hidden 
-    wait 500
     hotkey 'Hiding'
     wait 500
 endif
