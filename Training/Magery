@@ -1,0 +1,67 @@
+// *****
+// * Original code by Hanebu
+// *****
+//
+// HOW TO USE IT:
+//
+// 1. Declare variables:
+//    Open UO client.
+//    Go to Razor --> Scripts --> Options.
+//    Press Add and target your storage shelf.
+//    Now type "StorageShelf" in the dialog box.
+//    Remember: Case sensitive and without " ".
+//
+// Mana check
+if skill 'magery' < 60 and mana < 11
+    useskill 'meditation'
+    while mana < maxmana
+    endwhile
+    pause 600
+elseif skill 'magery' < 75 and mana < 20
+    useskill 'meditation'
+    while mana < maxmana
+    endwhile
+    pause 600
+elseif skill 'magery' < 85 and mana < 40
+    useskill 'meditation'
+    while mana < maxmana
+    endwhile
+    pause 600
+elseif skill 'magery' < 100 and mana < 50
+    useskill 'meditation'
+    while mana < maxmana
+    endwhile
+    pause 600
+endif
+
+// Training
+if skill 'magery' < 60
+    cast 'lightning'
+    waitfortarget 15000
+    targettype '0x8'
+    pause 1000
+elseif skill 'magery' < 75
+    cast 'invisibility'
+    waitfortarget 15000
+    target 'self'
+    pause 1000
+elseif skill 'magery' < 85
+    cast 'flamestrike'
+    waitfortarget 15000
+    target 'last'
+    pause 1000
+elseif skill 'magery' < 100
+    if count 'Blood Moss' < 1
+        dclick 'StorageShelf'
+        waitforgump 3232825965
+        gumpresponse 7
+    endif
+    cast 'Earth Elemental'
+    pause 5000
+    if followers > 0
+        say 'an earth elemental release'
+    endif
+else 
+    stop
+endif
+loop
