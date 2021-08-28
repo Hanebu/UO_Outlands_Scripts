@@ -1,0 +1,346 @@
+// *****
+// * Original code by Hanebu
+// *****
+
+// ChestTome
+if varexist 'ChestTome'
+	if find 'ChestTome' 'ground' -1 1 2
+		dclick 'ChestTome'
+	else
+		overhead 'Cannot reach ChestTome!' 49
+		stop
+	endif
+else
+	overhead 'Please select the ChestTome!' 69
+	setvar 'ChestTome'
+	dclick 'ChestTome'
+endif
+wait 600
+
+// TreasureMap Tome
+if varexist 'TreasureMapTome'
+	if not find 'TreasureMapTome' 'ChestTome'
+		overhead 'Cannot reach TreasureMap Tome!' 49
+		stop
+	endif
+else
+	overhead 'Please select the TreasureMap Tome!' 69
+	setvar 'TreasureMapTome'
+endif
+
+// LumberMap Tome
+if varexist 'LumberMapTome'
+	if not find 'LumberMapTome' 'ChestTome'
+		overhead 'Cannot reach LumberMap Tome!' 49
+		stop
+	endif
+else
+	overhead 'Please select the LumberMap Tome!' 69
+	setvar 'LumberMapTome'
+endif
+
+// OreMap Tome
+if varexist 'OreMapTome'
+	if not find 'OreMapTome' 'ChestTome'
+		overhead 'Cannot reach OreMap Tome!' 49
+		stop
+	endif
+else
+	overhead 'Please select the OreMap Tome!' 69
+	setvar 'OreMapTome'
+endif
+
+// SkinningMap Tome
+if varexist 'SkinningMapTome'
+	if not find 'SkinningMapTome' 'ChestTome'
+		overhead 'Cannot reach SkinningMap Tome!' 49
+		stop
+	endif
+else
+	overhead 'Please select the SkinningMap Tome!' 69
+	setvar 'SkinningMapTome'
+endif
+
+// FishingMap Tome
+if varexist 'FishingMapTome'
+	if not find 'FishingMapTome' 'ChestTome'
+		overhead 'Cannot reach FishingMap Tome!' 49
+		stop
+	endif
+else
+	overhead 'Please select the FishingMap Tome!' 69
+	setvar 'FishingMapTome'
+endif
+
+
+// ChestMaterials
+if varexist 'ChestMaterials'
+	if find 'ChestMaterials' 'ground' -1 1 2
+		dclick 'ChestMaterials'
+	else
+		overhead 'Cannot reach ChestMaterials!' 49
+		stop
+	endif
+else
+	overhead 'Please select the ChestMaterials!' 69
+	setvar 'ChestMaterials'
+	dclick 'ChestMaterials'
+endif
+wait 600
+
+// RepairBench
+if varexist 'RepairBench'
+	if find 'RepairBench' 'ground' -1 1 2
+		dclick 'RepairBench'
+	else
+		overhead 'Cannot reach RepairBench!' 49
+		stop
+	endif
+else
+	overhead 'Please select the RepairBench!' 69
+	setvar 'RepairBench'
+	dclick 'RepairBench'
+endif
+wait 600
+
+// DistroChest
+if varexist 'DistroChest'
+	if find 'DistroChest' 'ground' -1 1 2
+		dclick 'DistroChest'
+	else
+		overhead 'Cannot reach DistroChest!' 49
+		stop
+	endif
+else
+	overhead 'Please select the DistroChest!' 69
+	setvar 'DistroChest'
+	dclick 'DistroChest'
+endif
+wait 600
+
+// Aspect Items
+organizer 1
+if not insysmsg "Organize Agent did not find any items to move."
+    if not insysmsg "Organize Agent queued 1 item"
+        while not insysmsg "Finished"
+            pause 300
+        endwhile
+    endif
+endif
+
+// Mastery Scrolls
+organizer 2
+if not insysmsg "Organize Agent did not find any items to move."
+    if not insysmsg "Organize Agent queued 1 item"
+        while not insysmsg "Finished"
+            pause 300
+        endwhile
+    endif
+endif
+
+// Arcane Items
+organizer 3
+if not insysmsg "Organize Agent did not find any items to move."
+    if not insysmsg "Organize Agent queued 1 item"
+        while not insysmsg "Finished"
+            pause 300
+        endwhile
+    endif
+endif
+
+// Gold and Checks
+organizer 16
+if not insysmsg "Organize Agent did not find any items to move."
+    if not insysmsg "Organize Agent queued 1 item"
+        while not insysmsg "Finished"
+            pause 300
+        endwhile
+    endif
+endif
+
+// Leather
+organizer 6
+if not insysmsg "Organize Agent did not find any items to move."
+    if not insysmsg "Organize Agent queued 1 item"
+        while not insysmsg "Finished"
+            pause 300
+        endwhile
+    endif
+endif
+
+// Boards
+organizer 7
+if not insysmsg "Organize Agent did not find any items to move."
+    if not insysmsg "Organize Agent queued 1 item"
+        while not insysmsg "Finished"
+            pause 300
+        endwhile
+    endif
+endif
+
+// Ingots
+organizer 8
+if not insysmsg "Organize Agent did not find any items to move."
+    if not insysmsg "Organize Agent queued 1 item"
+        while not insysmsg "Finished"
+            pause 300
+        endwhile
+    endif
+endif
+
+// Seeds
+organizer 9
+if not insysmsg "Organize Agent did not find any items to move."
+    if not insysmsg "Organize Agent queued 1 item"
+        while not insysmsg "Finished"
+            pause 300
+        endwhile
+    endif
+endif
+
+// Food
+organizer 10 
+if not insysmsg "Organize Agent did not find any items to move."
+    if not insysmsg "Organize Agent queued 1 item"
+        while not insysmsg "Finished"
+            pause 300
+        endwhile
+    endif
+endif
+
+// Gems and Stuff
+organizer 11
+if not insysmsg "Organize Agent did not find any items to move."
+    if not insysmsg "Organize Agent queued 1 item"
+        while not insysmsg "Finished"
+            pause 300
+        endwhile
+    endif
+endif
+
+// Arcane Runes
+organizer 12 
+if not insysmsg "Organize Agent did not find any items to move."
+    if not insysmsg "Organize Agent queued 1 item"
+        while not insysmsg "Finished"
+            pause 300
+        endwhile
+    endif
+endif
+
+// Treasure Maps
+while findtype 5356 'backpack' 0 1 1 as tmap
+	lift tmap
+	drop 'TreasureMapTome'
+	pause 600
+endwhile
+
+// Lumber Maps
+while findtype 5356 'backpack' 2799 1 1 as tmap
+	lift tmap
+	drop 'LumberMapTome'
+	pause 600
+endwhile
+
+// Ore Maps
+while findtype 5356 'backpack' 2796 1 1 as tmap
+	lift tmap
+	drop 'OreMapTome'
+	pause 600
+endwhile
+
+// Skinning Maps
+while findtype 5356 'backpack' 2651 1 1 as tmap
+	lift tmap
+	drop 'SkinningMapTome'
+	pause 600
+endwhile
+
+// Fishing Maps
+while findtype 5356 'backpack' 2904 1 1 as tmap
+	lift tmap
+	drop 'FishingMapTome'
+	pause 600
+endwhile
+
+// Reagents
+if findtype "Blood Moss" 'backpack' 0 1 1 as bloodmoss
+	lift bloodmoss 9999
+	drop 'ChestTome'
+	pause 600
+endif
+if findtype "Sulfurous Ash" 'backpack' 0 1 1 as sulfurous
+	lift sulfurous 9999
+	drop 'ChestTome'
+	pause 600
+endif
+if findtype "Spider's Silk" 'backpack' 0 1 1 as spider
+	lift spider 9999
+	drop 'ChestTome'
+	pause 600
+endif
+if findtype "Ginseng" 'backpack' 0 1 1 as ginseng
+	lift ginseng 9999
+	drop 'ChestTome'
+	pause 600
+endif
+if findtype "Garlic" 'backpack' 0 1 1 as garlic
+	lift garlic 9999
+	drop 'ChestTome'
+	pause 600
+endif
+if findtype "Nightshade" 'backpack' 0 1 1 as nightshade
+	lift nightshade 9999
+	drop 'ChestTome'
+	pause 600
+endif
+if findtype "Black Pearl%s%" 'backpack' 0 1 1 as blackpearl
+	lift blackpearl 9999
+	drop 'ChestTome'
+	pause 600
+endif
+if findtype "Mandrake Root%s%" 'backpack' 0 1 1 as mandrake
+	lift mandrake 9999
+	drop 'ChestTome'
+	pause 600
+endif
+
+// Bandages
+if skill 'Healing' < 70
+	if findtype 3617 'backpack' as bandages
+		lift bandages 9999
+		drop 'ChestTome'
+	pause 600
+	endif
+endif
+
+// Arrows and Bolts
+if skill 'Archery' < 70
+	if findtype 7163 'backpack' as bolts
+		lift bolts 9999
+		drop 'ChestTome'
+	pause 600
+	endif
+	if findtype 3903 'backpack' as arrows
+		lift arrows 9999
+		drop 'ChestTome'
+	pause 600
+	endif
+endif
+
+// Restock Self + Shelf
+dclick 'StorageShelf'
+wait 600
+waitforgump 3232825965
+gumpresponse 7
+waitforgump 3232825965
+gumpresponse 4
+waitfortarget
+target 'ChestTome'
+
+// Drop all magical
+dclick 'Recycler'
+waitforgump 4045111101
+gumpresponse 3
+waitfortarget 
+target 'self'
