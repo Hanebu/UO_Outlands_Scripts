@@ -11,24 +11,44 @@
 //    Now type "StorageShelf" in the dialog box.
 //    Remember: Case sensitive and without " ".
 //
+// Clear
+clearjournal
+clearsysmsg
+
 // Mana check
 if skill 'magery' < 60 and mana < 11
     useskill 'meditation'
+	if insysmsg 'You cannot focus'
+		pause 4000
+		loop
+	endif
     while mana < maxmana
     endwhile
     pause 600
 elseif skill 'magery' < 75 and mana < 20
     useskill 'meditation'
+	if insysmsg 'You cannot focus'
+		pause 4000
+		loop
+	endif
     while mana < maxmana
     endwhile
     pause 600
 elseif skill 'magery' < 85 and mana < 40
     useskill 'meditation'
+	if insysmsg 'You cannot focus'
+		pause 4000
+		loop
+	endif	
     while mana < maxmana
     endwhile
     pause 600
 elseif skill 'magery' < 100 and mana < 50
     useskill 'meditation'
+	if insysmsg 'You cannot focus'
+		pause 4000
+		loop
+	endif
     while mana < maxmana
     endwhile
     pause 600
@@ -55,10 +75,12 @@ elseif skill 'magery' < 100
         dclick 'StorageShelf'
         waitforgump 3232825965
         gumpresponse 7
+        waitforgump 3232825965
+        gumpclose
     endif
     cast 'Earth Elemental'
-    pause 5000
-    if followers > 0
+    pause 6000
+    if followers > 1
         say 'an earth elemental release'
     endif
 else 
