@@ -15,19 +15,13 @@
 //    Replace the whole line with the text of "default.xml" in this GitHub folder.
 //    Save the file.
 //
-// 2. Declare variables:
-//    Open UO client.
-//    Go to Razor --> Scripts --> Options.
-//    Press Add and target any item ingame.
-//    Now type "TMapChest" in the dialog box.
-//    Remember: Case sensitive and without " ".
-// 
 
+// Get target cursor and set variable
 setvar 'TMapChest'
 
 // Hide
 if not hidden 
-    hotkey 'Hiding'
+    skill 'Hiding'
     wait 500
 endif
 
@@ -59,7 +53,7 @@ endwhile
 
 // Hide
 if not hidden 
-    hotkey 'Hiding'
+    skill 'Hiding'
     wait 500
 endif
 
