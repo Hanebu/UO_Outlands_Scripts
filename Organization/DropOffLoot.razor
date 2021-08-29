@@ -1,6 +1,20 @@
 // *****
 // * Original code by Hanebu
 // *****
+//
+// HOW TO USE IT:
+//
+// 1. Set up the list:
+//    Close all UO clients.
+//    Navigate to Outlands folder.
+//    Usually C:\Outlands Ultima Online\ClassicUO\Data\Plugins\Assistant\Profiles
+//    Find profile of your Razor in here, usually "default.xml"
+//    Make a backup of this file in case somethign goes wrong.
+//    Open the file with notepad, notepad++ or similar.
+//    Locate <Organizer-1 hotbag="0" /> to <Organizer-12 hotbag="0" />
+//    Replace the whole lines with the text of "default.xml" in this GitHub folder.
+//    Save the file.
+//
 
 // ChestTome
 if varexist 'ChestTome'
@@ -148,8 +162,19 @@ if not insysmsg "Organize Agent did not find any items to move."
     endif
 endif
 
-// Gold and Checks
-organizer 16
+
+// Gems and Stuff
+organizer 4
+if not insysmsg "Organize Agent did not find any items to move."
+    if not insysmsg "Organize Agent queued 1 item"
+        while not insysmsg "Finished"
+            pause 300
+        endwhile
+    endif
+endif
+
+// Arcane Runes
+organizer 5
 if not insysmsg "Organize Agent did not find any items to move."
     if not insysmsg "Organize Agent queued 1 item"
         while not insysmsg "Finished"
@@ -208,18 +233,8 @@ if not insysmsg "Organize Agent did not find any items to move."
     endif
 endif
 
-// Gems and Stuff
-organizer 11
-if not insysmsg "Organize Agent did not find any items to move."
-    if not insysmsg "Organize Agent queued 1 item"
-        while not insysmsg "Finished"
-            pause 300
-        endwhile
-    endif
-endif
-
-// Arcane Runes
-organizer 12 
+// Gold and Checks
+organizer 12
 if not insysmsg "Organize Agent did not find any items to move."
     if not insysmsg "Organize Agent queued 1 item"
         while not insysmsg "Finished"
