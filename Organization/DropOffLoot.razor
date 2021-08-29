@@ -16,6 +16,19 @@
 //    Save the file.
 //
 
+// Trash Bin
+if varexist 'TrashBin'
+    if find 'TrashBin' 'ground' -1 1 2
+        dclick 'TrashBin'
+    else
+        overhead 'Cannot reach TrashBin!' 49
+        stop
+    endif
+else
+    overhead 'Please select the TrashBin!' 69
+    setvar 'TrashBin'
+endif
+
 // ChestTome
 if varexist 'ChestTome'
     if find 'ChestTome' 'ground' -1 1 2
@@ -247,7 +260,12 @@ endif
 while findtype 5356 'backpack' 0 1 1 as tmap
     lift tmap
     drop 'TreasureMapTome'
-    pause 600
+	pause 600
+	if insysmsg 'has already been'
+	    lift tmap
+		drop 'TrashBin'
+		pause 600
+	endif    
 endwhile
 
 // Lumber Maps
@@ -255,6 +273,11 @@ while findtype 5356 'backpack' 2799 1 1 as tmap
     lift tmap
     drop 'LumberMapTome'
     pause 600
+	if insysmsg 'has already been'
+	    lift tmap
+		drop 'TrashBin'
+		pause 600
+	endif  
 endwhile
 
 // Ore Maps
@@ -262,6 +285,11 @@ while findtype 5356 'backpack' 2796 1 1 as tmap
     lift tmap
     drop 'OreMapTome'
     pause 600
+	if insysmsg 'has already been'
+	    lift tmap
+		drop 'TrashBin'
+		pause 600
+	endif 
 endwhile
 
 // Skinning Maps
@@ -269,6 +297,11 @@ while findtype 5356 'backpack' 2651 1 1 as tmap
     lift tmap
     drop 'SkinningMapTome'
     pause 600
+	if insysmsg 'has already been'
+	    lift tmap
+		drop 'TrashBin'
+		pause 600
+	endif 
 endwhile
 
 // Fishing Maps
@@ -276,6 +309,11 @@ while findtype 5356 'backpack' 2904 1 1 as tmap
     lift tmap
     drop 'FishingMapTome'
     pause 600
+	if insysmsg 'has already been'
+	    lift tmap
+		drop 'TrashBin'
+		pause 600
+	endif 
 endwhile
 
 // Reagents
