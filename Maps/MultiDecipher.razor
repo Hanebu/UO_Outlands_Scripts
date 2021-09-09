@@ -11,47 +11,54 @@
 //    then target the desired tome
 //    and paste the value below.
 //
-// Clear everything
-removelist Tomes
-createlist Tomes
+removelist tomes
+createlist tomes
 clearsysmsg
 
+// Set tome serials
+// Add as little or as many
+// different types of map
+// tomes here as you want
+// use >info in game to find
+// the serial, and add it
+// below like the two examples
+
 // Skinning
-pushlist Tomes '0x400D5230'
+pushlist tomes '0x400D5230'
 // Ore
-pushlist Tomes '0x47F6774A'
+pushlist tomes '0x47F6774A'
 // Lumber
-pushlist Tomes '0x47F67484'
+pushlist tomes '0x47F67484'
 // TMap
-pushlist Tomes '0x40C31DC8'
+pushlist tomes '0x40C31DC8'
 // Fishing
-pushlist Tomes '0x40048ED1'
+pushlist tomes '0x40048ED1'
 
-removelist Buttons
-createlist Buttons
+//Set buttons
+removelist buttons
+createlist buttons
+pushlist buttons '10'
+pushlist buttons '11'
+pushlist buttons '12'
+pushlist buttons '13'
+pushlist buttons '14'
+pushlist buttons '15'
+pushlist buttons '16'
+pushlist buttons '17'
+pushlist buttons '18'
 
-//Set Buttons
-pushlist Buttons '10'
-pushlist Buttons '11'
-pushlist Buttons '12'
-pushlist Buttons '13'
-pushlist Buttons '14'
-pushlist Buttons '15'
-pushlist Buttons '16'
-pushlist Buttons '17'
-pushlist Buttons '18'
-
-foreach tome in Tomes
+foreach tome in tomes
     dclick tome
     waitforgump 'any'
-    foreach button in Buttons
+    foreach button in buttons
+    overhead button
         if insysmsg 'The world will save'
             overhead 'Pausing for Worldsave' 55
             pause 25000
             overhead 'Done' 55
         endif
         gumpresponse button
-        wait 400
+        wait 500
         while findtype 5356 backpack
             if findtype 5356 backpack
                 gumpclose
@@ -69,7 +76,7 @@ foreach tome in Tomes
                     endwhile
                     gumpclose
                 endif
-                lifttype 5356 backpack
+                lifttype 5356 1 backpack
                 drop tome 0 0 0
                 wait 400
             endif
