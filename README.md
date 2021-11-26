@@ -1,1 +1,1 @@
-# UO_Outlands_Scripts
+# UO Outlands Scripts
