@@ -1,0 +1,23 @@
+// *****
+// * Original code by Hanebu
+// *****
+
+if not timerexists 'stealth'
+    createtimer 'stealth'
+    overhead 'Timer created'
+endif
+
+while not findtype 'campfire' ground any any 2 
+   dclicktype kindling backpack 
+   wait 1000
+endwhile
+if not hidden
+    useskill 'Hiding'
+    pause 10500
+endif
+if hidden and timer 'stealth' > 10500
+    useskill 'Stealth'
+    settimer 'stealth' 0
+endif
+
+loop
