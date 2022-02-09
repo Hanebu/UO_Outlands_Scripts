@@ -44,7 +44,22 @@ else
     setvar 'ChestTome'
     dclick 'ChestTome'
 endif
-wait 600
+wait 1000
+
+// DistroChest
+if varexist 'DistroChest'
+    if find 'DistroChest' 'ground' -1 1 2
+        dclick 'DistroChest'
+    else
+        overhead 'Cannot reach DistroChest!' 49
+        stop
+    endif
+else
+    overhead 'Please select the DistroChest!' 69
+    setvar 'DistroChest'
+    dclick 'DistroChest'
+endif
+wait 1000
 
 // TreasureMap Tome
 if varexist 'TreasureMapTome'
@@ -101,6 +116,27 @@ else
     setvar 'FishingMapTome'
 endif
 
+// Cloth Tome
+if varexist 'ClothTome'
+    if not find 'ClothTome' 'ChestTome'
+    overhead 'Cannot reach Cloth Tome!' 49
+        stop
+    endif
+else
+    overhead 'Please select the Cloth Tome!' 69
+    setvar 'ClothTome'
+endif
+
+// Dye Tome
+if varexist 'DyeTome'
+    if not find 'DyeTome' 'ChestTome'
+        overhead 'Cannot reach Dye Tome!' 49
+        stop
+    endif
+else
+    overhead 'Please select the Dye Tome!' 69
+    setvar 'DyeTome'
+endif
 
 // ChestMaterials
 if varexist 'ChestMaterials'
@@ -117,6 +153,21 @@ else
 endif
 wait 600
 
+// ChestOtherMaterials
+if varexist 'ChestOtherMaterials'
+    if find 'ChestOtherMaterials' 'ground' -1 1 2
+        dclick 'ChestOtherMaterials'
+    else
+        overhead 'Cannot reach ChestOtherMaterials!' 49
+        stop
+    endif
+else
+    overhead 'Please select the ChestOtherMaterials!' 69
+    setvar 'ChestOtherMaterials'
+    dclick 'ChestOtherMaterials'
+endif
+wait 600
+
 // RepairBench
 if varexist 'RepairBench'
     if find 'RepairBench' 'ground' -1 1 2
@@ -129,21 +180,6 @@ else
     overhead 'Please select the RepairBench!' 69
     setvar 'RepairBench'
     dclick 'RepairBench'
-endif
-wait 600
-
-// DistroChest
-if varexist 'DistroChest'
-    if find 'DistroChest' 'ground' -1 1 2
-        dclick 'DistroChest'
-    else
-        overhead 'Cannot reach DistroChest!' 49
-        stop
-    endif
-else
-    overhead 'Please select the DistroChest!' 69
-    setvar 'DistroChest'
-    dclick 'DistroChest'
 endif
 wait 600
 
@@ -177,8 +213,7 @@ if not insysmsg "Organize Agent did not find any items to move."
     endif
 endif
 
-
-// Gems and Stuff
+// Gold, Gems
 organizer 4
 if not insysmsg "Organize Agent did not find any items to move."
     if not insysmsg "Organize Agent queued 1 item"
@@ -188,7 +223,7 @@ if not insysmsg "Organize Agent did not find any items to move."
     endif
 endif
 
-// Arcane Runes
+// Resources
 organizer 5
 if not insysmsg "Organize Agent did not find any items to move."
     if not insysmsg "Organize Agent queued 1 item"
@@ -198,7 +233,7 @@ if not insysmsg "Organize Agent did not find any items to move."
     endif
 endif
 
-// Leather
+// Arcane Runes
 organizer 6
 if not insysmsg "Organize Agent did not find any items to move."
     if not insysmsg "Organize Agent queued 1 item"
@@ -208,7 +243,7 @@ if not insysmsg "Organize Agent did not find any items to move."
     endif
 endif
 
-// Boards
+// Seeds
 organizer 7
 if not insysmsg "Organize Agent did not find any items to move."
     if not insysmsg "Organize Agent queued 1 item"
@@ -218,7 +253,7 @@ if not insysmsg "Organize Agent did not find any items to move."
     endif
 endif
 
-// Ingots
+// Dyes
 organizer 8
 if not insysmsg "Organize Agent did not find any items to move."
     if not insysmsg "Organize Agent queued 1 item"
@@ -228,137 +263,128 @@ if not insysmsg "Organize Agent did not find any items to move."
     endif
 endif
 
-// Seeds
-organizer 9
-if not insysmsg "Organize Agent did not find any items to move."
-    if not insysmsg "Organize Agent queued 1 item"
-        while not insysmsg "Finished"
-            pause 300
-        endwhile
-    endif
-endif
-
-// Food
-organizer 10 
-if not insysmsg "Organize Agent did not find any items to move."
-    if not insysmsg "Organize Agent queued 1 item"
-        while not insysmsg "Finished"
-            pause 300
-        endwhile
-    endif
-endif
-
-// Gold and Checks
-organizer 12
-if not insysmsg "Organize Agent did not find any items to move."
-    if not insysmsg "Organize Agent queued 1 item"
-        while not insysmsg "Finished"
-            pause 300
-        endwhile
-    endif
-endif
-
 // Treasure Maps
-while findtype 5356 'backpack' 0 1 1 as tmap
+while findtype 5356 'backpack' 0 1 3 as tmap
     lift tmap
     drop 'TreasureMapTome'
-	pause 600
-	if insysmsg 'has already been'
-	    lift tmap
-		drop 'TrashBin'
-		pause 600
-	endif    
+    pause 600
+    if insysmsg 'has already been'
+        lift tmap
+        drop 'TrashBin'
+        pause 600
+    endif    
 endwhile
 
 // Lumber Maps
-while findtype 5356 'backpack' 2799 1 1 as tmap
+while findtype 5356 'backpack' 2799 1 3 as tmap
     lift tmap
     drop 'LumberMapTome'
     pause 600
-	if insysmsg 'has already been'
-	    lift tmap
-		drop 'TrashBin'
-		pause 600
-	endif  
+    if insysmsg 'has already been'
+        lift tmap
+        drop 'TrashBin'
+        pause 600
+    endif  
 endwhile
 
 // Ore Maps
-while findtype 5356 'backpack' 2796 1 1 as tmap
+while findtype 5356 'backpack' 2796 1 3 as tmap
     lift tmap
     drop 'OreMapTome'
     pause 600
-	if insysmsg 'has already been'
-	    lift tmap
-		drop 'TrashBin'
-		pause 600
-	endif 
+    if insysmsg 'has already been'
+        lift tmap
+        drop 'TrashBin'
+        pause 600
+    endif 
 endwhile
 
 // Skinning Maps
-while findtype 5356 'backpack' 2651 1 1 as tmap
+while findtype 5356 'backpack' 2651 1 3 as tmap
     lift tmap
     drop 'SkinningMapTome'
     pause 600
-	if insysmsg 'has already been'
-	    lift tmap
-		drop 'TrashBin'
-		pause 600
-	endif 
+    if insysmsg 'has already been'
+        lift tmap
+        drop 'TrashBin'
+        pause 600
+    endif 
 endwhile
 
 // Fishing Maps
-while findtype 5356 'backpack' 2904 1 1 as tmap
+while findtype 5356 'backpack' 2904 1 3 as tmap
     lift tmap
     drop 'FishingMapTome'
     pause 600
-	if insysmsg 'has already been'
-	    lift tmap
-		drop 'TrashBin'
-		pause 600
-	endif 
+    if insysmsg 'has already been'
+        lift tmap
+        drop 'TrashBin'
+        pause 600
+    endif 
+endwhile
+
+// Cloth
+while findtype 5981 'backpack' -1 1 3 as cloth
+    lift cloth
+    drop 'ClothTome'
+    pause 600
 endwhile
 
 // Reagents
-if findtype "Blood Moss" 'backpack' 0 1 1 as bloodmoss
+while findtype "Blood Moss" 'backpack' 0 1 1 as bloodmoss
     lift bloodmoss 9999
     drop 'ChestTome'
     pause 600
-endif
-if findtype "Sulfurous Ash" 'backpack' 0 1 1 as sulfurous
+endwhile
+while findtype "Sulfurous Ash" 'backpack' 0 1 1 as sulfurous
     lift sulfurous 9999
     drop 'ChestTome'
     pause 600
-endif
-if findtype "Spider's Silk" 'backpack' 0 1 1 as spider
+endwhile
+while findtype "Spider%s% Silk" 'backpack' 0 1 1 as spider
     lift spider 9999
     drop 'ChestTome'
     pause 600
-endif
-if findtype "Ginseng" 'backpack' 0 1 1 as ginseng
+endwhile
+while findtype "Ginseng" 'backpack' 0 1 1 as ginseng
     lift ginseng 9999
     drop 'ChestTome'
     pause 600
-endif
-if findtype "Garlic" 'backpack' 0 1 1 as garlic
+endwhile
+while findtype "Garlic" 'backpack' 0 1 1 as garlic
     lift garlic 9999
     drop 'ChestTome'
     pause 600
-endif
-if findtype "Nightshade" 'backpack' 0 1 1 as nightshade
+endwhile
+while findtype "Nightshade" 'backpack' 0 1 1 as nightshade
     lift nightshade 9999
     drop 'ChestTome'
     pause 600
-endif
-if findtype "Black Pearl%s%" 'backpack' 0 1 1 as blackpearl
+endwhile
+while findtype "Black Pearl%s%" 'backpack' 0 1 1 as blackpearl
     lift blackpearl 9999
     drop 'ChestTome'
     pause 600
-endif
-if findtype "Mandrake Root%s%" 'backpack' 0 1 1 as mandrake
+endwhile
+while findtype "Mandrake Root%s%" 'backpack' 0 1 1 as mandrake
     lift mandrake 9999
     drop 'ChestTome'
     pause 600
-endif
+endwhile
+
+// Checks
+while findtype '5360' 'backpack' 2125 1 1 as check
+    lift check 9999
+    drop 'DistroChest'
+    pause 600
+endwhile
+
+// Gold
+while findtype '3821' 'backpack' 0 1 1 as gold
+    lift gold 9999
+    drop 'DistroChest'
+    pause 600
+endwhile
 
 // Bandages
 if skill 'Healing' < 70
@@ -384,18 +410,38 @@ if skill 'Archery' < 70
 endif
 
 // Restock Self + Shelf
-dclick 'StorageShelf'
-wait 600
-waitforgump 3232825965
-gumpresponse 7
-waitforgump 3232825965
-gumpresponse 4
-waitfortarget
-target 'ChestTome'
+if varexist 'StorageShelf'
+    if find 'StorageShelf' 'ground' -1 1 2
+        dclick 'StorageShelf'
+        wait 600
+        waitforgump 3232825965
+        gumpresponse 7
+        waitforgump 3232825965
+        gumpresponse 4
+        waitfortarget
+        target 'ChestTome'
+    else
+        overhead 'Cannot reach StorageShelf!' 49
+        stop
+    endif
+else
+    overhead 'Please select the StorageShelf!' 69
+    setvar 'StorageShelf'
+endif
 
 // Drop all magical
-dclick 'Recycler'
-waitforgump 4045111101
-gumpresponse 3
-waitfortarget 
-target 'self'
+if varexist 'Recycler'
+    if find 'Recycler' 'ground' -1 1 2
+        dclick 'Recycler'
+        waitforgump 4045111101
+        gumpresponse 3
+        waitfortarget 
+        target 'self'
+    else
+        overhead 'Cannot reach Recycler!' 49
+        stop
+    endif
+else
+    overhead 'Please select the Recycler!' 69
+    setvar 'Recycler'
+endif
